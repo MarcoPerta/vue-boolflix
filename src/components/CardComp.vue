@@ -1,12 +1,12 @@
 <template>
- <div class="d-flex flex-wrap justify-content-between">
-    <div v-for="(elem,index) in List" :key="index" class="m-1 cards">
-        <p>titolo: {{elem.title}}</p> 
-        <p>titolo originale: {{elem.original_title}}</p>
-        <p>lingua: {{elem.original_language}}</p>
-        <p>voto: {{elem.vote_average}}</p>
+
+    <div class="m-1 cards">
+        <p>titolo: {{ListCardFilm.title}}</p> 
+        <p>titolo originale: {{ListCardFilm.original_title}}</p>
+        <p>lingua: {{ListCardFilm.original_language}}</p>
+        <p>voto: {{ListCardFilm.vote_average}}</p>
     </div>
- </div>
+
 </template>
     
     
@@ -15,7 +15,7 @@
   export default {
   name: 'CardComp',
   props:{
-      List: Array
+    ListCardFilm: Object
    }
   }
 </script>

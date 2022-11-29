@@ -1,6 +1,6 @@
 <template>
- <div>
-   <CardComp :List="List"/>
+ <div class="d-flex flex-wrap justify-content-between">
+   <CardComp v-for="(elem,index) in List" :key="index" :ListCardFilm="elem"/>
  </div>
 </template>
  
