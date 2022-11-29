@@ -1,9 +1,11 @@
 <template>
   <div id="app">
 
-    <HeaderComp/>
+    <HeaderComp @emitSearchTextHeader="searchMovie"/>
 
     <MainComp/>
+
+    <div v-for="(elem,index) in risultato" :key="index">{{elem.original_title}}</div>
 
   </div>
 </template>
@@ -11,7 +13,7 @@
 <script>
 import HeaderComp from './components/HeaderComp.vue'
 import MainComp from './components/MainComp.vue'
-// import axios from 'axios'
+import axios from 'axios'
 
 export default {
   name: 'App',
@@ -19,25 +21,31 @@ export default {
     HeaderComp,
     MainComp
   },
-  // data() {
-  //   return {
-      
-  //   }
-  // },
-  // mounted() {
-  //   this.getAxios();
-  // },
-  // methods: {
-  //   getAxios() {
-  //     axios.get()
-  //       .then((response) => {
-          
-  //         });
-     
-  //   }
-  // }
+  data(){
+    return{
+      searchTextFromHeaderToApp: '',
+      searchQueryUrl:'',
+      risultato:[]
+    }
+  },
+  mounted(){
+  },
+  methods:{
+    searchMovie(searchTextHeader){
+      this.searchTextFromHeaderToApp = searchTextHeader
+      console.log(this.searchTextFromHeaderToApp)
+      this.searchQueryUrl = 'https://api.themoviedb.org/3/search/movie?api_key=a46cf050fa06a3adc791073b9b0b4127&language=en-US&page=1&include_adult=false&query=' + this.searchTextFromHeaderToApp;
+      console.log(this.searchQueryUrl);
 
+      axios.get(this.searchQueryUrl)
+      .then((response) => {
+        this.risultato = response.data.results
+      })
+    }
+  }
 }
+
+
 </script>
 
 <style lang="scss">
