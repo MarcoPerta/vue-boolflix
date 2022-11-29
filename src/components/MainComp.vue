@@ -1,9 +1,11 @@
 <template>
 
 <div>
-    <FilmList/>
-   
-    <SerieList/>
+
+  <FilmList :List="List"/>
+  
+  <SerieList/>
+  
 </div>
 
 </template>
@@ -18,7 +20,10 @@ import SerieList from './SerieList.vue'
     components: {
     FilmList,
     SerieList
-  }
+  },
+  props:{
+      List: Array
+    }
     
   }
 </script>

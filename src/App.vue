@@ -3,9 +3,7 @@
 
     <HeaderComp @emitSearchTextHeader="searchMovie"/>
 
-    <MainComp/>
-
-    <div v-for="(elem,index) in risultato" :key="index">{{elem.original_title}}</div>
+    <MainComp :List="risultato"/>
 
   </div>
 </template>
