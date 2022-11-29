@@ -4,7 +4,7 @@
 
   <FilmList :List="List"/>
   
-  <SerieList/>
+  <SerieList :ListTv="ListTv"/>
   
 </div>
 
@@ -22,7 +22,8 @@ import SerieList from './SerieList.vue'
     SerieList
   },
   props:{
-      List: Array
+      List: Array,
+      ListTv: Array
     }
     
   }
