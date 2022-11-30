@@ -43,6 +43,9 @@ export default {
       axios.get(this.searchQueryUrl)
       .then((response) => {
         this.risultato = response.data.results;
+      })
+      axios.get(this.searchQueryUrlTv)
+      .then((response) => {
         this.risultatoTv = response.data.results
       })
     } 
@@ -52,12 +55,13 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
+  background-color: #303030;
 }
 </style>
