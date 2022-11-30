@@ -1,11 +1,12 @@
 <template>
 
     <div class="cards-img m-1">
-        <img :src="`https://image.tmdb.org/t/p/w185/${ListCardFilm.poster_path}`" alt="" class="rounded">
+        <img :src="`https://image.tmdb.org/t/p/w185/${ListCardFilm.poster_path}`" alt="" class="poster rounded">
         <div class="m-1 descriptions">
         <p>titolo: {{ListCardFilm.title}}</p> 
         <p>titolo originale: {{ListCardFilm.original_title}}</p>
-        <p>lingua: {{ListCardFilm.original_language}}</p>
+        <span v-if="ListCardFilm.original_language == 'en'">lingua: <img class="flag" src="../assets/flags/UK-union-flag.svg" alt=""></span>
+        <span v-else-if="ListCardFilm.original_language == 'it'"> lingua: <img class="flag" src="../assets/flags/italian-flag.svg" alt=""></span>
         <p>voto: {{ListCardFilm.vote_average}}</p>
         </div>
     </div>
@@ -25,7 +26,10 @@
     
     
 <style lang="scss" scoped>
-
+.flag{
+    width: 30px;
+    height: 25px;
+}
 .cards-img {
     position: relative;
 }
@@ -43,7 +47,7 @@
     left: 0;
 }
 
-.cards-img:hover img {
+.cards-img:hover .poster {
     opacity: 0.2;
 }
 
