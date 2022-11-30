@@ -1,11 +1,12 @@
 <template>
 
     <div class="cards-img m-1">
-        <img :src="`https://image.tmdb.org/t/p/w185/${ListCardTv.poster_path}`" alt="" class="rounded">
+        <img :src="`https://image.tmdb.org/t/p/w185/${ListCardTv.poster_path}`" alt="" class="poster rounded">
         <div class="m-1 descriptions">
-        <p>titolo: {{ListCardTv.name}}</p> 
+        <p>titolo: {{ListCardTv.name}}</p> <br>
         <p>titolo originale: {{ListCardTv.original_name}}</p>
-        <p>lingua: {{ListCardTv.original_language}}</p>
+        <span v-if="ListCardTv.original_language == 'en'">lingua: <img class="flag" src="../assets/flags/UK-union-flag.svg" alt=""></span>
+        <span v-else-if="ListCardTv.original_language == 'it'"> lingua: <img class="flag" src="../assets/flags/italian-flag.svg" alt=""></span>
         <p>voto: {{ListCardTv.vote_average}}</p>
         </div>
     </div>
@@ -20,11 +21,16 @@
   props:{
     ListCardTv: Object
    }
-  }
+   }
 </script>
     
     
 <style lang="scss" scoped>
+
+.flag{
+    width: 30px;
+    height: 25px;
+}
 
 .cards-img {
     position: relative;
@@ -43,7 +49,7 @@
     left: 0;
 }
 
-.cards-img:hover img {
+.cards-img:hover .poster {
     opacity: 0.2;
 }
 
