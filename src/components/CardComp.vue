@@ -4,7 +4,7 @@
         <img :src="`https://image.tmdb.org/t/p/w185/${ListCardFilm.poster_path}`" alt="" class="poster rounded">
         <div class="m-1 descriptions">
         <p>titolo: {{ListCardFilm.title}}</p> 
-        <p>titolo originale: {{ListCardFilm.original_title}}</p>
+        <p v-if="ListCardFilm.original_title !== ListCardFilm.title">titolo originale: {{ListCardFilm.original_title}}</p>
         <span v-if="ListCardFilm.original_language == 'en'">lingua: <img class="flag" src="../assets/flags/UK-union-flag.svg" alt=""></span>
         <span v-else-if="ListCardFilm.original_language == 'it'"> lingua: <img class="flag" src="../assets/flags/italian-flag.svg" alt=""></span>
         <p>voto: {{ListCardFilm.vote_average}}</p>

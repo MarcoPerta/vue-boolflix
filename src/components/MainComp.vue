@@ -3,7 +3,9 @@
 <div>
 
   <FilmList :List="List"/>
+
   
+
   <SerieList :ListTv="ListTv"/>
   
 </div>

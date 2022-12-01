@@ -1,5 +1,5 @@
 <template>
- <div class="d-flex flex-wrap justify-content-between">
+ <div class="d-flex justify-content-between scroll">
    <CardComp v-for="(elem,index) in List" :key="index" :ListCardFilm="elem"/>
  </div>
 </template>
@@ -22,5 +22,8 @@ import CardComp from './CardComp.vue'
  
  
 <style lang="scss">
- 
+ .scroll{
+  overflow-x: auto;
+  overflow-y: hidden;
+}
 </style>
